@@ -26,17 +26,11 @@ from PIL import Image
 french_img  = Image.open('parisian.jpg') 
 us_img  = Image.open('CowboyGuy.jpg') 
 
-
 ####################This is the binary identitier###########################
 def forest_prediction(description): 
     sample_test_df = pd.DataFrame({'description': [description]})
     word_finder_matrix(sample_test_df)
-    if forest.predict([sample_test_df.iloc[0,1:]])[0] == 'France':
-        return st.image(french_img, use_column_width=True, caption = 'Zis wine is probably from France!');
-        #return 'Zis wine is mozt definitely from France.'
-    if forest.predict([sample_test_df.iloc[0,1:]])[0] == 'US':
-        return st.image(us_img, use_column_width=True, caption = 'Howdy stranger, this wine must be from right here in America.')
-        #return 'Howdy stranger, this wine must be from right here in America.'
+    return forest.predict([sample_test_df.iloc[0,1:]])[0]
 ############################################################################
     
 st.title('What am I drinking?')
@@ -47,8 +41,10 @@ client_response = st.text_input('In the most pompous and scientific way possible
 
 button = st.button('Guess!')
 if button: 
-    st.header(forest_prediction(client_response))
-
+    if forest_prediction(client_response) == 'France':
+        print( st.image(french_img, use_column_width=True, caption = 'Zis wine is probably from France!'))
+    if forest_prediction(client_response) == 'US':
+        print( st.image(us_img, use_column_width=True, caption = 'Howdy stranger, this wine must be from right here in America.'))
 
 
 
