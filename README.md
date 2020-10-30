@@ -6,7 +6,7 @@ In this project I will be using various classification models to predict whether
 
 ---
 
-This is a simplified first step toward a total classification or wines based on descriptive characteristics. To this end, we hand selected 50 features (moderately engineered) that we will use to build a binary matrix to train different classification models with. The feature functions can be found in the word_finder_chard.ipynb file. As expected, there are certain words that are excellent predictors of American and French wines. Almost every model tested above expectations on unseen testing data. 
+This is a simplified first step toward a total classification or wines based on descriptive characteristics. To this end, we hand selected 50 features (moderately engineered) that we will use to build a binary matrix to train different classification models with. The feature functions can be found in the word_finder_chard.ipynb file. As expected, there are certain words that are excellent predictors of American and French wines. Almost every model tested above expectations on unseen testing data. A full outline of the processes and code for all the models and data manipulation is found in the US_vs_French_Chard.ipynb.  
 
 Using an proprietary stacking model, we took weighted votes from seven models: k-nearest neighbors, naive bayes, logistic regression, support vector machines, decision tree, random forest, and an XGBoost model. Random Forest and a heavily manufactured XGBoost outperformed the pack and were given extra voting power. On unseen wine descriptions, our stacked model correctly identified 92.5% of the holdout data with a precision of 0.841 and a recall of 0.865. 
 
