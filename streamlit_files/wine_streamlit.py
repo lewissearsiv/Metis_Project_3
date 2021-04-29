@@ -34,7 +34,6 @@ st.title('What am I drinking?')
 st.markdown('### We can help you determine if your chardonnay is from France or the United States.\n ----------------------------')
 st.markdown("   ")
 
-
 client_response = st.text_input('In the most pompous and scientific way possible, describe your chardonnay for me.')
 
 button = st.button('Guess!')
